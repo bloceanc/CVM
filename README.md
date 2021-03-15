@@ -32,10 +32,28 @@ CVM could be easily integrated with any apps/systems.
 The file 'sim.c' in simulator path is an example to show how to use CVM.
 
 #### how to run an VM instance
-  * create new VM instance
-
-   '''
-      The function 'vm_create' would create a new machine instance using the specified parammeters and return the instance.
-      vm_create("./lic"/* elf file to run */, 4 * 1024 * 1024/* total memory used to run CVM, 1024/* the stack size for thread */);
-   '''
-
+  * Create new VM instance.The function 'vm_create' would create a new machine instance using the specified parammeters and return the instance.
+   ```
+      vm_create("./lic",         /* ELF file to run */
+                4 * 1024 * 1024, /* Total memory used to run CVM */
+                1024             /* the stack size for thread */
+      );
+   ```
+  * Load the symbol into the instance. Using 'elf_resolve' to resolve the ELF and get the symbol ID.
+  ```
+      elf_resolve(pvm,           /* CVM instance */
+                  "__init"       /* Symbol name  */
+      );
+  ```
+  * Setup the main thread of vm.
+  ```
+      vm_create_main_thread(pvm,   /* CVM instance */
+                            symbol /* the function to run by main thread */
+      );
+  ```
+  * Run the CVM.
+  ```
+      vm_start(pvm,   /* CVM instance */
+               0      /* Thread id, using 0 as only one thread supported now */
+      );
+  ```
