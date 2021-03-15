@@ -33,6 +33,7 @@ The file 'sim.c' in simulator path is an example to show how to use CVM.
 
 #### how to run an VM instance
   * create new VM instance
+
    '''
       The function 'vm_create' would create a new machine instance using the specified parammeters and return the instance.
       vm_create("./lic"/* elf file to run */, 4 * 1024 * 1024/* total memory used to run CVM, 1024/* the stack size for thread */);
