@@ -57,3 +57,18 @@ The file 'sim.c' in simulator path is an example to show how to use CVM.
                0      /* Thread id, using 0 as only one thread supported now */
       );
   ```
+#### how to setup parammeters for symbol to run
+  We can use vm_push_main_thread_param to do this.
+  ```
+      vm_push_main_thread_param(pvm, /* CVM instance */
+                                0    /* parammeter */
+      );
+  ```
+  Remember, this function would auto push the parammeter, and **CANNOT** specify the parammeter index which would be calculated by the calling sequence.
+  
+#### how to get the return value of symbol in host
+  The following two functions would help u.
+  ```
+  extern u32_t abi_func_get_return_int(vm_t *vm, u32_t tid);   /* get return value as UINT32 */
+  extern void* abi_func_get_return_addr(vm_t *vm, u32_t tid);  /* get return value as pointer */
+  ```
