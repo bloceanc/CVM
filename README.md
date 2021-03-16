@@ -28,6 +28,18 @@ Fortunately, it has built a syscall framework through a special virtual instruct
   * Dynamic Library
   * ...
 
+## Compile Virtual App
+#### Compiler
+  As mentioned before, we use CPU0-LLVM by extending a special instruction.
+  You can build your own compiler or just use the one in 'compier' path.
+
+#### Run-time Library
+  We support few APIs(run-time) now. You can extend them easily by the "api caller workframe" according existed one(like open).
+  ***Remember***, there're two place need to extend, one for virtual app (run-time lib), another for host implemention.
+
+#### Compile App
+  There example in 'vapps' path including Makefile. It's easy.
+  
 ## How to Use
 CVM could be easily integrated with any apps/systems.
 The file 'sim.c' in simulator path is an example to show how to use CVM.
