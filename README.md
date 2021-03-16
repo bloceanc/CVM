@@ -35,7 +35,8 @@ Fortunately, it has built a syscall framework through a special virtual instruct
 
 #### Run-time Library
   We support few APIs(run-time) now. You can extend them easily by the "api caller workframe" according existed one(like open).
-  ***Remember***, there're two place need to extend, one for virtual app (run-time lib), another for host implemention.
+  
+  ***Remember***, there're two place need to extend, one for virtual app (run-time lib) in 'rtlib' path, another for host implemention.
 
 #### Compile App
   There example in 'vapps' path including Makefile. It's easy.
